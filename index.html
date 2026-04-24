@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>CS NEXUS | Global Secure Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -13,53 +13,52 @@
         .vivid-gradient { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
         .neural-grid { background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px); background-size: 30px 30px; }
         
-        .bento-card { background: white; border-radius: 32px; border: 1px solid #e2e8f0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; display: flex; flex-direction: column; }
+        /* Premium Bento Cards */
+        .bento-card { background: white; border-radius: 32px; border: 1px solid #e2e8f0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; height: 100%; }
         .bento-card:hover { transform: translateY(-8px); border-color: #4f46e5; box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.15); }
         
         .sidebar-item.active { background: rgba(255, 255, 255, 0.1); color: white; border-left: 4px solid #818cf8; }
-        .enterprise-input { width: 100%; padding: 0.8rem; background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 1rem; outline: none; font-weight: 700; transition: 0.3s; margin-top: 0.3rem; }
+        .enterprise-input { width: 100%; padding: 0.8rem; background: #f1f5f9; border: 2px solid #cbd5e1; border-radius: 1rem; outline: none; font-weight: 700; transition: 0.3s; }
         .enterprise-input:focus { border-color: #4f46e5; background: white; box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); }
         
-        .comm-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 10px; transition: 0.3s; color: white; }
-        .comm-btn:hover { transform: scale(1.15); filter: brightness(1.1); }
+        .comm-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px; transition: 0.3s; color: white; }
+        .comm-btn:hover { transform: scale(1.15) rotate(5deg); }
         
         .glass-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e8f0; }
+        .mode-btn-active { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important; color: white !important; box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4); }
+
+        /* Techy Bright Footer */
+        .cyber-footer { background: #020617; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; border-top: 1px solid rgba(79, 70, 229, 0.4); position: relative; }
+        .cyber-footer::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #4f46e5, #7c3aed, transparent); animation: scanline 3s linear infinite; }
+        @keyframes scanline { 0% { opacity: 0.2; } 50% { opacity: 1; } 100% { opacity: 0.2; } }
+
+        .dev-badge { background: rgba(255,255,255,0.05); padding: 4px 14px; border-radius: 12px; color: #818cf8; font-size: 10px; font-weight: 900; letter-spacing: 0.05em; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+        .dev-badge:hover { background: #4f46e5; color: white; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4); }
+
+        /* Full Visible Name Engine */
+        .full-name-display { overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; text-wrap: balance; line-height: 1.2; }
         
-        .mode-btn { border: 2px solid #334155; color: #94a3b8; transition: all 0.4s ease; }
-        .mode-btn-active { 
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important; 
-            color: white !important; 
-            border-color: transparent !important;
-            box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.5);
-        }
-
-        .cyber-footer { background: #020617; height: 48px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; border-top: 1px solid rgba(79, 70, 229, 0.3); }
-        .cyber-footer::before { content: ''; position: absolute; top: 0; left: -100%; width: 200%; height: 2px; background: linear-gradient(90deg, transparent, #4f46e5, #7c3aed, #4f46e5, transparent); animation: cyber-scan 4s linear infinite; }
-        @keyframes cyber-scan { 0% { left: -100%; } 100% { left: 100%; } }
-
-        .dev-signature { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 12px; color: #818cf8; font-size: 10px; font-weight: 900; letter-spacing: 0.1em; transition: 0.3s; backdrop-filter: blur(4px); }
-        .dev-signature:hover { background: #4f46e5; color: white; box-shadow: 0 0 20px rgba(79, 70, 229, 0.6); transform: translateY(-2px); }
-
+        /* Mobile Profile Optimized for Browser Viewports */
+        .profile-container { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; background: #020617; }
+        .profile-scrollable { flex: 1; overflow-y: auto; padding-bottom: 20px; }
+        
+        input::-ms-reveal { display: none; }
         .skeleton { background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
         @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        input::-ms-reveal { display: none; }
-        @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .profile-animate { animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
     </style>
 
     <script>
-        // --- SECURITY ---
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123) return false;
-            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) return false;
-            if(e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 'P'.charCodeAt(0))) return false;
+        // --- HARDENED SECURITY ---
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = e => {
+            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && [73, 74, 67].includes(e.keyCode)) || (e.ctrlKey && [85, 83, 80].includes(e.keyCode))) return false;
         };
     </script>
 </head>
 <body class="flex flex-col h-screen overflow-hidden neural-grid">
 
     <div id="main-app" class="flex flex-1 overflow-hidden">
+        <!-- Sidebar -->
         <aside class="w-64 bg-[#020617] text-slate-400 flex flex-col shadow-2xl z-50">
             <div class="p-8 flex items-center gap-3">
                 <div class="w-10 h-10 vivid-gradient rounded-xl flex items-center justify-center text-white shadow-lg font-black text-lg">CS</div>
@@ -67,44 +66,42 @@
             </div>
             <div class="flex-1 px-4 space-y-6 overflow-y-auto">
                 <nav class="space-y-1">
-                    <button onclick="switchTab('dashboard')" id="nav-dashboard" class="sidebar-item active w-full flex items-center gap-4 p-4 rounded-2xl font-bold text-sm transition-all text-left"><i class="fas fa-layer-group w-5"></i> Dashboard</button>
+                    <button onclick="switchTab('dashboard')" id="nav-dashboard" class="sidebar-item active w-full flex items-center gap-4 p-4 rounded-2xl font-bold text-sm transition-all text-left"><i class="fas fa-grid-2 w-5"></i> Dashboard</button>
                     <button onclick="switchTab('directory')" id="nav-directory" class="sidebar-item w-full flex items-center gap-4 p-4 rounded-2xl font-bold text-sm transition-all text-left"><i class="fas fa-database w-5"></i> Database</button>
-                    <button onclick="setRole('user')" id="nav-profile" class="sidebar-item w-full flex items-center gap-4 p-4 rounded-2xl font-bold text-sm transition-all text-left"><i class="fas fa-user-shield w-5"></i> My Profile</button>
-                    <button onclick="setRole('admin')" id="nav-admin" class="sidebar-item w-full flex items-center gap-4 p-4 rounded-2xl font-bold text-sm transition-all text-left"><i class="fas fa-key w-5"></i> Admin Vault</button>
+                    <button onclick="setRole('user')" id="nav-profile" class="sidebar-item w-full flex items-center gap-4 p-4 rounded-2xl font-bold text-sm transition-all text-left"><i class="fas fa-user-check w-5"></i> My Profile</button>
+                    <button onclick="setRole('admin')" id="nav-admin" class="sidebar-item w-full flex items-center gap-4 p-4 rounded-2xl font-bold text-sm transition-all text-left"><i class="fas fa-vault w-5"></i> Admin Vault</button>
                 </nav>
                 <div id="dir-opts" class="hidden pt-4 border-t border-slate-800 space-y-3 px-2">
-                    <button onclick="switchMode('Students')" id="btn-Students" class="mode-btn mode-btn-active w-full p-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all">Active Nodes</button>
-                    <button onclick="switchMode('Alumni')" id="btn-Alumni" class="mode-btn w-full p-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all">Legacy Network</button>
+                    <button onclick="switchMode('Students')" id="btn-Students" class="mode-btn-active w-full p-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all">Active Nodes</button>
+                    <button onclick="switchMode('Alumni')" id="btn-Alumni" class="w-full p-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all text-slate-500 hover:bg-slate-800">Legacy Network</button>
                 </div>
             </div>
             <div class="p-6"><button onclick="openRegistration()" class="w-full bg-white text-[#020617] py-4 rounded-2xl font-black text-[10px] shadow-xl active:scale-95 transition-all uppercase tracking-widest italic">Register Node</button></div>
         </aside>
 
+        <!-- Main Content -->
         <main class="flex-1 flex flex-col overflow-hidden relative">
             <header class="h-20 glass-header flex items-center justify-between px-10 z-40">
                 <div class="flex items-center gap-3"><div class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_#10b981]"></div><h2 id="view-title" class="text-xl font-black text-slate-900 uppercase italic tracking-tight">Control Center</h2></div>
                 <div class="flex items-center gap-3">
                     <div id="admin-badge" class="hidden flex items-center gap-2">
                         <button onclick="openExportModal()" class="px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-[9px] font-black border border-emerald-200 uppercase">Export</button>
-                        <span class="px-4 py-1.5 bg-red-50 text-red-600 rounded-full text-[9px] font-black animate-pulse uppercase">Admin</span>
+                        <span class="px-4 py-1.5 bg-red-50 text-red-600 rounded-full text-[9px] font-black animate-pulse uppercase">Secure_Admin</span>
                     </div>
                     <button onclick="fetchData()" class="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center hover:bg-indigo-600 hover:text-white transition shadow-sm"><i class="fas fa-sync-alt text-sm"></i></button>
                 </div>
             </header>
 
             <div id="search-container" class="hidden bg-white/60 border-b px-10 py-4">
-                <div class="relative group">
-                    <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-600 transition"></i>
-                    <input type="text" id="f_search" oninput="applyFilters()" placeholder="Neural Scan (Name, ID, Dept, Batch, Country)..." class="w-full bg-white border-2 border-slate-100 rounded-2xl pl-14 pr-6 py-4 text-sm font-bold focus:border-indigo-500 outline-none transition-all shadow-sm">
-                </div>
+                <div class="relative"><i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-slate-400"></i><input type="text" id="f_search" oninput="applyFilters()" placeholder="Neural Scan (Name, ID, Dept, Batch, Country)..." class="w-full bg-white border-2 border-slate-100 rounded-2xl pl-14 pr-6 py-4 text-sm font-bold focus:border-indigo-500 outline-none shadow-sm"></div>
             </div>
 
             <div id="dashboard-view" class="flex-1 overflow-y-auto p-10 space-y-8">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Active</p><h3 id="stat-students" class="text-4xl font-black mt-2 text-indigo-600">--</h3></div>
-                    <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Legacy</p><h3 id="stat-alumni" class="text-4xl font-black mt-2 text-slate-900">--</h3></div>
-                    <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Global</p><h3 id="stat-global" class="text-4xl font-black mt-2 text-emerald-500">--</h3></div>
-                    <div class="vivid-gradient p-8 rounded-[2rem] text-white shadow-lg flex flex-col justify-center"><p class="text-[9px] font-black opacity-60 uppercase tracking-widest">Status</p><h3 class="text-xl font-black mt-1 uppercase">Secure</h3></div>
+                    <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Active</p><h3 id="stat-students" class="text-4xl font-black mt-2 text-indigo-600">--</h3></div>
+                    <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Legacy</p><h3 id="stat-alumni" class="text-4xl font-black mt-2 text-slate-900">--</h3></div>
+                    <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm"><p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Global</p><h3 id="stat-global" class="text-4xl font-black mt-2 text-emerald-500">--</h3></div>
+                    <div class="vivid-gradient p-8 rounded-[2.5rem] text-white shadow-lg flex flex-col justify-center"><p class="text-[9px] font-black opacity-60 uppercase tracking-widest">Protocol</p><h3 class="text-xl font-black mt-1 uppercase">Encrypted</h3></div>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-10">
                     <div class="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm h-96"><canvas id="deptChart"></canvas></div>
@@ -116,23 +113,23 @@
         </main>
     </div>
 
+    <!-- TECHY BRIGHT FOOTER -->
     <footer class="cyber-footer z-50">
-        <div class="flex items-center gap-6">
-            <div class="flex items-center gap-2">
-                <div class="w-2 h-2 bg-indigo-500 rounded-full animate-ping"></div>
-                <p class="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em]">
-                    &copy; <span id="year" class="text-white"></span> NEXUS CORE <span class="text-indigo-600 mx-1">|</span> GDC
-                </p>
-            </div>
-        </div>
         <div class="flex items-center gap-4">
+            <p class="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em]">
+                &copy; <span id="year" class="text-white"></span> NEXUS CORE <span class="text-indigo-600 mx-2">|</span> DR. VS KRISHNA GDC
+            </p>
+        </div>
+        <div class="flex items-center gap-3">
             <span class="text-[9px] font-black text-slate-500 uppercase tracking-widest italic">ARCHITECT</span>
-            <a href="https://www.linkedin.com/in/m3nadh/" target="_blank" class="dev-signature">M. THRINADH</a>
+            <a href="https://www.linkedin.com/in/m3nadh/" target="_blank" class="dev-badge italic uppercase">Marukonda Thrinadh <i class="fab fa-linkedin-in ml-1 text-[8px]"></i></a>
         </div>
     </footer>
 
-    <div id="candidate-page" class="hidden fixed inset-0 z-[200] bg-[#020617] h-screen w-screen overflow-hidden"></div>
+    <!-- MOBILE FULL-SCREEN QR PROFILE -->
+    <div id="candidate-page" class="hidden fixed inset-0 z-[200] bg-[#020617] h-[100dvh] w-screen overflow-hidden"></div>
 
+    <!-- MODAL -->
     <div id="modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
         <div id="modal-content" class="bg-white w-full max-w-5xl rounded-[3.5rem] shadow-2xl overflow-hidden flex flex-col max-h-[95vh]"></div>
     </div>
@@ -142,8 +139,7 @@
         const _OBF = "dnNrYWRtaW4="; 
         let ACTIVE_PASS = "", currentRole = "viewer", activeMode = "Students", masterData = [], c1, c2;
 
-        const NATIONS = [{n:"India", c:"+91"},{n:"USA", c:"+1"},{n:"UK", c:"+44"},{n:"Canada", c:"+1"},{n:"Australia", c:"+61"},{n:"Germany", c:"+49"},{n:"UAE", c:"+971"}];
-
+        const NATIONS = [{n:"India", c:"+91"},{n:"USA", c:"+1"},{n:"UK", c:"+44"},{n:"Canada", c:"+1"},{n:"Australia", c:"+61"},{n:"UAE", c:"+971"},{n:"Germany", c:"+49"}];
         document.getElementById('year').innerText = new Date().getFullYear();
 
         window.onload = () => {
@@ -161,13 +157,13 @@
         function showAdminAuth() {
             toggleModal(true);
             document.getElementById('modal-content').innerHTML = `
-                <div class="vivid-gradient p-12 text-white text-center"><h2 class="text-3xl font-black uppercase italic tracking-tighter leading-none">Admin Vault</h2><p class="mt-2 text-[10px] font-bold opacity-60 uppercase tracking-widest">Authorized Entry Only</p></div>
+                <div class="vivid-gradient p-12 text-white text-center"><h2 class="text-3xl font-black uppercase italic tracking-tighter">Admin Vault</h2><p class="mt-2 text-[10px] font-bold opacity-60 uppercase tracking-widest">Credential Check Required</p></div>
                 <div class="p-12 space-y-6 bg-white">
                     <div class="input-group"><label class="label-text">Passkey</label><div class="relative flex items-center">
                         <input type="password" id="admin-p-input" placeholder="••••••••" class="enterprise-input pr-12" onkeydown="if(event.key==='Enter') verifyAdminPass()">
                         <button type="button" onclick="togglePassVisibility('admin-p-input', this)" class="absolute right-4 text-slate-400 focus:outline-none"><i class="fas fa-eye"></i></button>
                     </div></div>
-                    <button onclick="verifyAdminPass()" class="w-full bg-[#020617] text-white py-5 rounded-3xl font-black uppercase tracking-widest shadow-xl">Verify & Enter</button>
+                    <button onclick="verifyAdminPass()" class="w-full bg-[#020617] text-white py-5 rounded-3xl font-black uppercase tracking-widest shadow-xl">Decrypt & Access</button>
                 </div>`;
         }
 
@@ -187,11 +183,11 @@
         function showUserLogin() {
             toggleModal(true);
             document.getElementById('modal-content').innerHTML = `
-                <div class="vivid-gradient p-12 text-white text-center"><h2 class="text-3xl font-black uppercase italic tracking-tighter leading-none">Identity Check</h2></div>
+                <div class="vivid-gradient p-12 text-white text-center"><h2 class="text-3xl font-black uppercase italic tracking-tighter">Identity Sync</h2></div>
                 <div class="p-12 space-y-6 bg-white">
                     <div class="input-group"><label class="label-text">College ID</label><input type="text" id="auth-id" placeholder="Ex: 21CS101" class="enterprise-input" onkeydown="if(event.key==='Enter') userAuth()"></div>
-                    <div class="input-group"><label class="label-text">Security DOB</label><input type="date" id="auth-dob" class="enterprise-input" onkeydown="if(event.key==='Enter') userAuth()"></div>
-                    <button onclick="userAuth()" class="w-full vivid-gradient text-white py-5 rounded-3xl font-black uppercase tracking-widest shadow-xl">Authenticate</button>
+                    <div class="input-group"><label class="label-text">Security Key (DOB)</label><input type="date" id="auth-dob" class="enterprise-input" onkeydown="if(event.key==='Enter') userAuth()"></div>
+                    <button onclick="userAuth()" class="w-full vivid-gradient text-white py-5 rounded-3xl font-black uppercase tracking-widest shadow-xl">Verify Node</button>
                 </div>`;
         }
 
@@ -203,43 +199,16 @@
             if (r.success) { activeMode = r.type; showEditForm(r.data, true); } else alert(r.msg);
         }
 
-        // --- DUAL-STREAM NEURAL FETCH ---
+        // --- DIRECTORY ENGINE ---
         async function fetchData() {
             const grid = document.getElementById('directory-view');
-            grid.innerHTML = Array(6).fill(0).map(() => `<div class="bento-card p-6 h-80 flex flex-col gap-4 shadow-sm"><div class="flex gap-4 items-center"><div class="w-16 h-16 rounded-2xl skeleton"></div><div class="flex-1 space-y-2"><div class="h-4 w-32 skeleton rounded"></div><div class="h-3 w-20 skeleton rounded"></div></div></div><div class="h-20 w-full skeleton rounded-2xl"></div><div class="h-10 w-2/3 skeleton rounded-xl mt-auto"></div></div>`).join('');
+            grid.innerHTML = Array(6).fill(0).map(() => `<div class="bento-card p-6 h-80 shadow-sm"><div class="flex gap-4 items-center"><div class="w-16 h-16 rounded-2xl skeleton"></div><div class="flex-1 space-y-2"><div class="h-4 w-32 skeleton rounded"></div><div class="h-3 w-20 skeleton rounded"></div></div></div><div class="h-24 w-full skeleton rounded-3xl mt-4"></div></div>`).join('');
             try {
-                // Parallel fetch for speed
-                const [resS, resA] = await Promise.all([
-                    fetch(`${API_URL}?action=read&type=Students`),
-                    fetch(`${API_URL}?action=read&type=Alumni`)
-                ]);
-                const dataS = await resS.json();
-                const dataA = await resA.json();
-                
-                // Tag them for manual mode switching and merge
+                const [resS, resA] = await Promise.all([ fetch(`${API_URL}?action=read&type=Students`), fetch(`${API_URL}?action=read&type=Alumni`) ]);
+                const dataS = await resS.json(), dataA = await resA.json();
                 masterData = [...dataS.map(r => { r.nodeType = 'Students'; return r; }), ...dataA.map(r => { r.nodeType = 'Alumni'; return r; })];
                 applyFilters();
-            } catch(e) { grid.innerHTML = "Sync Error."; }
-        }
-
-        function applyFilters() {
-            const q = document.getElementById('f_search').value.toLowerCase();
-            let filtered = [];
-            
-            if (!q) {
-                // If no search, respect the Sidebar Button Selection
-                filtered = masterData.filter(r => r.nodeType === activeMode);
-            } else {
-                // If searching, scan BOTH categories simultaneously
-                filtered = masterData.filter(r => 
-                    r[0].toString().toLowerCase().includes(q) || // ID
-                    r[1].toString().toLowerCase().includes(q) || // Name
-                    r[4].toString().toLowerCase().includes(q) || // Dept
-                    r[5].toString().toLowerCase().includes(q) || // Start Year
-                    r[19].toString().toLowerCase().includes(q)   // Country
-                );
-            }
-            renderGrid(filtered);
+            } catch(e) { grid.innerHTML = "Offline."; }
         }
 
         function renderGrid(data) {
@@ -249,44 +218,44 @@
                 const photoSrc = (item[13] && item[13].startsWith('data:image')) ? item[13] : `https://ui-avatars.com/api/?background=4f46e5&color=fff&name=${encodeURIComponent(item[1] || 'User')}`;
                 const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(cleanUrl + '?id=' + item[0])}`;
                 const rawPhone = (item[9] || "").toString().replace(/[^\d]/g, '');
-                const jobTitle = item[11], company = item[12], awards = item[17];
-                const hasJob = jobTitle && jobTitle !== "N/A";
-                const hasAwards = awards && awards !== "";
+                const hasJob = item[11] && item[11] !== "N/A";
+                const hasAwards = item[17] && item[17] !== "";
 
                 return `
                 <div class="bento-card p-6 shadow-sm">
-                    <div class="flex items-center gap-4 mb-5 relative">
-                        <img src="${photoSrc}" class="w-16 h-16 rounded-2xl object-cover shadow-md border border-slate-100">
-                        <div class="flex-1 truncate">
-                            <h3 class="text-base font-black text-slate-900 truncate leading-none uppercase tracking-tight">${item[1] || 'Unknown'}</h3>
-                            <p class="text-[9px] font-extrabold text-indigo-600 uppercase mt-1.5 tracking-widest">${item[4]} Dept • BATCH ${item[5]}-${item[6]}</p>
+                    <div class="flex items-start gap-4 mb-5 relative">
+                        <img src="${photoSrc}" class="w-16 h-16 rounded-2xl object-cover shadow-md border border-slate-100 shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-base font-black text-slate-900 leading-tight uppercase full-name-display">${item[1] || 'Unknown'}</h3>
+                            <p class="text-[9px] font-extrabold text-indigo-600 uppercase mt-1.5 tracking-widest">${item[4]} • ${item[5]}-${item[6]}</p>
                         </div>
                         <div class="w-10 h-10 border p-0.5 rounded-lg bg-white shrink-0 shadow-sm"><img src="${qrUrl}" class="w-full h-full"></div>
                     </div>
                     
-                    <div class="flex-1 space-y-2.5 mb-4">
-                        ${hasJob ? `<div class="bg-slate-900 p-3 rounded-2xl border border-slate-800"><p class="text-[7px] font-black text-indigo-400 uppercase tracking-[0.15em] mb-0.5">Role</p><p class="text-[10px] font-bold text-white leading-snug">${jobTitle} @ ${company}</p></div>` : ''}
-                        ${hasAwards ? `<div class="bg-indigo-50/50 p-3 rounded-2xl border border-indigo-100/40"><p class="text-[7px] font-black text-indigo-400 uppercase tracking-[0.15em] mb-0.5">Credential</p><p class="text-[10px] font-bold text-indigo-900 line-clamp-2 italic">${awards}</p></div>` : ''}
-                        <div class="px-1 space-y-1"><p class="text-[9px] font-bold text-slate-400 truncate"><i class="fas fa-id-badge text-slate-300 w-3"></i> ${item[0]}</p><p class="text-[9px] font-bold text-slate-400 truncate"><i class="fas fa-location-dot text-slate-300 w-3"></i> ${item[20] !== 'N/A' ? item[20] : (item[19] || 'India')}</p></div>
+                    <div class="flex-1 space-y-3 mb-4">
+                        ${hasJob ? `<div class="bg-slate-900 p-3 rounded-2xl border border-slate-800"><p class="text-[7px] font-black text-indigo-400 uppercase tracking-widest mb-1">Occupation</p><p class="text-[10px] font-bold text-white leading-snug">${item[11]} @ ${item[12]}</p></div>` : ''}
+                        ${hasAwards ? `<div class="bg-indigo-50/50 p-3 rounded-2xl border border-indigo-100/40"><p class="text-[7px] font-black text-indigo-400 uppercase tracking-widest mb-1">Achievements</p><p class="text-[10px] font-bold text-indigo-900 line-clamp-2 leading-relaxed italic">${item[17]}</p></div>` : ''}
+                        <div class="px-1 space-y-1"><p class="text-[9px] font-bold text-slate-400 truncate flex items-center gap-2"><i class="fas fa-id-badge text-slate-300 w-3"></i> ${item[0]}</p><p class="text-[9px] font-bold text-slate-400 truncate flex items-center gap-2"><i class="fas fa-location-dot text-slate-300 w-3"></i> ${item[20] !== 'N/A' ? item[20] : (item[19] || 'India')}</p></div>
                     </div>
 
                     <div class="flex justify-between items-center pt-4 border-t border-slate-50">
                         <div class="flex gap-2.5">
-                            <a href="tel:+${rawPhone}" class="comm-btn bg-emerald-500 shadow-md"><i class="fas fa-phone-alt text-[10px]"></i></a>
-                            <a href="https://wa.me/${rawPhone}" target="_blank" class="comm-btn bg-green-500 shadow-md"><i class="fab fa-whatsapp text-sm"></i></a>
-                            ${item[15] && item[15] !== 'N/A' ? `<a href="${item[15]}" target="_blank" class="comm-btn bg-[#0a66c2] shadow-md"><i class="fab fa-linkedin-in text-xs"></i></a>` : ''}
+                            <a href="tel:+${rawPhone}" class="comm-btn bg-emerald-500 shadow-md shadow-emerald-50"><i class="fas fa-phone-alt text-[10px]"></i></a>
+                            <a href="https://wa.me/${rawPhone}" target="_blank" class="comm-btn bg-green-500 shadow-md shadow-green-50"><i class="fab fa-whatsapp text-sm"></i></a>
+                            ${(item[15] && item[15] !== 'N/A') ? `<a href="${item[15]}" target="_blank" class="comm-btn bg-[#0a66c2] shadow-md shadow-blue-50"><i class="fab fa-linkedin-in text-xs"></i></a>` : ''}
                         </div>
                         <div class="flex gap-2">${currentRole === 'admin' ? `<button onclick="editRecord('${item[0]}')" class="w-8 h-8 bg-slate-50 text-slate-400 rounded-lg hover:bg-slate-900 hover:text-white transition"><i class="fas fa-pencil-alt text-[9px]"></i></button><button onclick="deleteRecord('${item[0]}', '${item[21]||item[6]}')" class="w-8 h-8 bg-red-50 text-red-400 rounded-lg hover:bg-red-500 hover:text-white transition"><i class="fas fa-trash text-[9px]"></i></button>` : ''}</div>
                     </div>
                 </div>`}).join('');
         }
 
+        // --- NATIVE MOBILE "ZERO-SCROLL" QR PROFILE ---
         async function loadCandidatePage(id) {
             document.getElementById('main-app').classList.add('hidden');
             document.querySelector('.cyber-footer').classList.add('hidden');
             const page = document.getElementById('candidate-page');
             page.classList.remove('hidden');
-            page.innerHTML = '<div class="h-screen flex items-center justify-center text-white"><i class="fas fa-atom animate-spin text-5xl text-indigo-500"></i></div>';
+            page.innerHTML = '<div class="h-screen flex items-center justify-center text-indigo-500"><i class="fas fa-atom animate-spin text-5xl"></i></div>';
             try {
                 const res = await fetch(`${API_URL}?action=fetchPublic&id=${id}`);
                 const r = await res.json();
@@ -295,33 +264,51 @@
                     const photoSrc = (item[13] && item[13].startsWith('data:image')) ? item[13] : `https://ui-avatars.com/api/?background=4f46e5&color=fff&name=${encodeURIComponent(item[1] || 'User')}`;
                     const isAlumni = item[11] && item[11] !== "N/A";
                     page.innerHTML = `
-                    <div class="h-screen flex flex-col profile-animate bg-[#020617] text-white">
+                    <div class="profile-container profile-animate">
                         <div class="vivid-gradient p-10 pt-16 flex flex-col items-center text-center shadow-2xl relative rounded-b-[4rem] shrink-0">
-                            <img src="${photoSrc}" class="w-24 h-24 rounded-3xl object-cover border-4 border-white shadow-2xl mb-4">
-                            <h1 class="text-3xl font-black uppercase italic tracking-tighter leading-none">${item[1]}</h1>
-                            <p class="text-xs font-bold text-indigo-100 uppercase mt-3 tracking-[0.2em] opacity-80">${item[4]} Dept • BATCH ${item[5]}-${item[6]}</p>
+                            <img src="${photoSrc}" class="w-28 h-28 rounded-3xl object-cover border-4 border-white/20 shadow-2xl mb-4">
+                            <h1 class="text-2xl font-black uppercase italic leading-tight full-name-display text-white px-4">${item[1]}</h1>
+                            <p class="text-[10px] font-bold text-indigo-100 uppercase tracking-widest opacity-80 mt-2">${item[4]} Dept • BATCH ${item[5]}-${item[6]}</p>
                         </div>
-                        <div class="flex-1 p-8 space-y-6 overflow-y-auto flex flex-col justify-center">
-                            <div class="bg-white/5 p-6 rounded-[2.5rem] border border-white/10 backdrop-blur-md">
-                                <p class="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-3">${isAlumni ? 'Professional Node' : 'Credentials'}</p>
-                                <p class="text-sm font-bold text-slate-200 leading-relaxed italic">${isAlumni ? (item[11] + ' at ' + item[12]) : (item[17] || 'Verified Profile')}</p>
+                        <div class="flex-1 p-8 space-y-5 flex flex-col justify-center overflow-hidden">
+                            <div class="bg-white/5 p-6 rounded-[2rem] border border-white/10 backdrop-blur-xl">
+                                <p class="text-[8px] font-black text-indigo-400 uppercase tracking-widest mb-2">${isAlumni ? 'Professional Profile' : 'Credentials'}</p>
+                                <p class="text-sm font-bold text-slate-200 leading-snug italic">${isAlumni ? (item[11] + ' at ' + item[12]) : (item[17] || 'Secure Node Verified')}</p>
                                 ${isAlumni && item[17] ? `<p class="mt-3 text-[11px] text-slate-400 border-t border-white/5 pt-3">${item[17]}</p>` : ''}
                             </div>
-                            <div class="grid grid-cols-2 gap-4 text-center">
-                                <div class="bg-white/5 p-4 rounded-3xl border border-white/5"><p class="text-[8px] font-black text-slate-500 uppercase">ID</p><p class="text-xs font-bold text-slate-300 mt-1">${item[0]}</p></div>
-                                <div class="bg-white/5 p-4 rounded-3xl border border-white/5"><p class="text-[8px] font-black text-slate-500 uppercase">Region</p><p class="text-xs font-bold text-slate-300 mt-1 truncate">${item[20] !== 'N/A' ? item[20] : (item[19] || 'India')}</p></div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white/5 p-4 rounded-2xl border border-white/5 text-center"><p class="text-[7px] font-black text-slate-500 uppercase tracking-widest">ID</p><p class="text-xs font-bold text-slate-300">${item[0]}</p></div>
+                                <div class="bg-white/5 p-4 rounded-2xl border border-white/5 text-center"><p class="text-[7px] font-black text-slate-500 uppercase tracking-widest">Region</p><p class="text-xs font-bold text-slate-300 truncate">${item[20] !== 'N/A' ? item[20] : (item[19] || 'India')}</p></div>
                             </div>
                         </div>
-                        <div class="p-8 space-y-3 pb-12 bg-gradient-to-t from-[#020617] to-transparent shrink-0">
-                            <a href="tel:+${phone}" class="flex items-center justify-center gap-3 w-full bg-white text-[#020617] py-5 rounded-[2rem] font-black text-xs uppercase tracking-widest shadow-xl active:scale-95 transition-all"><i class="fas fa-phone-alt"></i> Voice Channel</a>
+                        <div class="p-8 pt-0 space-y-3 shrink-0 mb-8 pb-[env(safe-area-inset-bottom)]">
+                            <a href="tel:+${phone}" class="flex items-center justify-center gap-3 w-full bg-white text-[#020617] py-4.5 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl active:scale-95 transition-all"><i class="fas fa-phone-alt"></i> Voice Channel</a>
                             <div class="grid grid-cols-2 gap-3">
-                                <a href="https://wa.me/${phone}" target="_blank" class="flex items-center justify-center gap-2 bg-[#22c55e] text-white py-4 rounded-[1.5rem] font-black text-[10px] uppercase shadow-lg active:scale-95 transition-all"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                                ${item[15] && item[15] !== 'N/A' ? `<a href="${item[15]}" target="_blank" class="flex items-center justify-center gap-2 bg-[#0a66c2] text-white py-4 rounded-[1.5rem] font-black text-[10px] uppercase shadow-lg active:scale-95 transition-all"><i class="fab fa-linkedin-in"></i> LinkedIn</a>` : `<div class="bg-slate-800 text-slate-600 py-4 rounded-[1.5rem] font-black text-[10px] text-center uppercase tracking-widest">Offline</div>`}
+                                <a href="https://wa.me/${phone}" target="_blank" class="flex items-center justify-center gap-2 bg-[#22c55e] text-white py-4 rounded-2xl font-black text-[10px] uppercase shadow-lg active:scale-95 transition-all"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                ${item[15] && item[15] !== 'N/A' ? `<a href="${item[15]}" target="_blank" class="flex items-center justify-center gap-2 bg-[#0a66c2] text-white py-4 rounded-2xl font-black text-[10px] uppercase shadow-lg active:scale-95 transition-all"><i class="fab fa-linkedin-in"></i> LinkedIn</a>` : `<div class="bg-slate-800/50 text-slate-500 py-4 rounded-2xl font-black text-[10px] text-center uppercase tracking-widest border border-white/5">N/A</div>`}
                             </div>
+                            <p class="text-center text-[7px] font-black text-slate-700 tracking-[0.4em] uppercase pt-4">CS NEXUS PORTAL</p>
                         </div>
                     </div>`;
                 }
             } catch(e) {}
+        }
+
+        // --- FORM ENGINE ---
+        function updateRegMode() {
+            const endYear = parseInt(document.getElementById('m_end').value);
+            const now = new Date(), curYear = now.getFullYear(), curMonth = now.getMonth(); 
+            let isAlumni = (endYear < curYear) || (endYear === curYear && curMonth >= 5);
+            const badge = document.getElementById('reg-mode-badge'), alumniSection = document.getElementById('alumni-section');
+            if (isAlumni) {
+                badge.innerText = "Alumni Portal Active";
+                badge.className = "px-3 py-1 bg-slate-900 text-white rounded-lg text-[9px] font-black uppercase animate-pulse shadow-lg";
+                alumniSection.classList.remove('hidden');
+            } else {
+                badge.innerText = "Active Student Node";
+                badge.className = "px-3 py-1 bg-indigo-100 text-indigo-600 rounded-lg text-[9px] font-black uppercase";
+                alumniSection.classList.add('hidden');
+            }
         }
 
         function showEditForm(data = null, isSelf = false) {
@@ -331,6 +318,7 @@
             const initialPrefix = NATIONS.find(n => n.n === currentCountry)?.c || "+91";
             const getClean = (idx) => (data && data[idx] && data[idx] !== 'N/A') ? data[idx] : '';
             let currentMobile = getClean(9).replace(data ? data[18] : '', "");
+            
             let startOpts = "", endOpts = "";
             for(let y = 2011; y <= curY + 1; y++) startOpts += `<option value="${y}" ${data && data[5] == y ? 'selected' : (y == curY ? 'selected' : '')}>${y}</option>`;
             for(let y = 2014; y <= curY + 6; y++) endOpts += `<option value="${y}" ${data && data[6] == y ? 'selected' : (y == curY + 3 ? 'selected' : '')}>${y}</option>`;
@@ -341,28 +329,28 @@
                     <button onclick="toggleModal(false)"><i class="fas fa-times"></i></button>
                 </div>
                 <form id="entryForm" class="p-8 grid grid-cols-1 md:grid-cols-3 gap-x-8 overflow-y-auto bg-white">
-                    <div class="col-span-full text-[10px] font-black text-indigo-600 uppercase border-b pb-1.5 mb-4">Identity Core</div>
+                    <div class="col-span-full text-[10px] font-black text-indigo-600 uppercase border-b pb-1.5 mb-4">Identification</div>
                     <div><label class="label-text">College ID</label><input type="text" id="m_id" value="${getClean(0)}" placeholder="Ex: 21CS101" class="enterprise-input" ${isEdit?'disabled':'required'}></div>
                     <div><label class="label-text">Full Name</label><input type="text" id="m_name" value="${getClean(1)}" placeholder="Marukonda Thrinadh" class="enterprise-input" required></div>
-                    <div><label class="label-text">Security Key (DOB)</label><input type="date" id="m_dob" value="${getClean(14)}" class="enterprise-input" required></div>
+                    <div><label class="label-text">Date of Birth</label><input type="date" id="m_dob" value="${getClean(14)}" class="enterprise-input" required></div>
                     <div class="mt-4"><label class="label-text">Country</label><select id="m_country" onchange="handleCountryChange()" class="enterprise-input">${NATIONS.map(v=>`<option value="${v.n}" data-code="${v.c}" ${currentCountry===v.n?'selected':''}>${v.n}</option>`).join('')}</select></div>
                     <div class="mt-4"><label class="label-text">Mobile</label><div class="flex gap-2"><input type="text" id="m_prefix" value="${data?data[18]:initialPrefix}" class="w-16 enterprise-input bg-slate-100" readonly><input type="text" id="m_mobile" value="${currentMobile}" placeholder="Digits Only" class="flex-1 enterprise-input" required></div></div>
-                    <div class="mt-4"><label class="label-text">Secure Email</label><input type="email" id="m_email" value="${getClean(8)}" placeholder="thrinadh@nexus.com" class="enterprise-input" required></div>
+                    <div class="mt-4"><label class="label-text">Email</label><input type="email" id="m_email" value="${getClean(8)}" placeholder="secure@domain.com" class="enterprise-input" required></div>
                     <div class="col-span-full mt-6 text-[10px] font-black text-indigo-600 uppercase border-b pb-1.5 mb-4">Academic</div>
                     <div><label class="label-text">Dept</label><select id="m_dept" class="enterprise-input"><option value="CS" ${data&&data[4]=='CS'?'selected':''}>CS</option><option value="AI" ${data&&data[4]=='AI'?'selected':''}>AI</option></select></div>
-                    <div><label class="label-text">Batch Start</label><select id="m_start" class="enterprise-input">${startOpts}</select></div>
-                    <div><label class="label-text">Batch End</label><select id="m_end" onchange="updateRegMode()" class="enterprise-input">${endOpts}</select></div>
+                    <div><label class="label-text">Start Year</label><select id="m_start" class="enterprise-input">${startOpts}</select></div>
+                    <div><label class="label-text">End Year</label><select id="m_end" onchange="updateRegMode()" class="enterprise-input">${endOpts}</select></div>
                     <div id="alumni-section" class="hidden col-span-full grid grid-cols-1 md:grid-cols-3 gap-x-8">
                         <div class="col-span-full mt-6 text-[10px] font-black text-indigo-600 uppercase border-b pb-1.5 mb-4">Professional Profile</div>
                         <div><label class="label-text">Job Title</label><input type="text" id="m_job" value="${getClean(11)}" placeholder="Ex: Software Architect" class="enterprise-input"></div>
-                        <div><label class="label-text">Company</label><input type="text" id="m_comp" value="${getClean(12)}" placeholder="Ex: Google / Amazon" class="enterprise-input"></div>
-                        <div><label class="label-text">Location</label><input type="text" id="m_loc" value="${getClean(20)}" placeholder="Ex: Hyderabad, India" class="enterprise-input"></div>
+                        <div><label class="label-text">Company</label><input type="text" id="m_comp" value="${getClean(12)}" placeholder="Ex: Google / Microsoft" class="enterprise-input"></div>
+                        <div><label class="label-text">Location</label><input type="text" id="m_loc" value="${getClean(20)}" placeholder="Ex: Visakhapatnam, AP" class="enterprise-input"></div>
                     </div>
                     <div class="col-span-full mt-6 text-[10px] font-black text-indigo-600 uppercase border-b pb-1.5 mb-4">Achievements</div>
-                    <div class="col-span-full"><label class="label-text text-indigo-400">Qualifications / Awards (Optional)</label><input type="text" id="m_awards" value="${getClean(17)}" placeholder="Ex: MBA, PhD, Best Student, AWS Certified..." class="enterprise-input"></div>
-                    <div class="mt-4"><label class="label-text">LinkedIn Profile</label><input type="url" id="m_li" value="${getClean(15)}" placeholder="https://linkedin.com/..." class="enterprise-input"></div>
-                    <div class="mt-4"><label class="label-text">Primary Skills</label><input type="text" id="m_skills" value="${getClean(10)}" placeholder="Ex: Cloud, AI, Full Stack..." class="enterprise-input"></div>
-                    <div class="col-span-full mt-6 bg-slate-50 p-6 rounded-3xl text-center border-2 border-dashed border-slate-200"><label class="label-text block mb-1">Neural Photo Node</label><input type="file" id="m_photo" accept="image/*" class="text-[10px] font-bold text-slate-400"></div>
+                    <div class="col-span-full"><label class="label-text text-indigo-400">Qualifications / Awards (Optional)</label><input type="text" id="m_awards" value="${getClean(17)}" placeholder="Ex: MBA, Gold Medalist, AWS Certified..." class="enterprise-input"></div>
+                    <div class="mt-4"><label class="label-text">LinkedIn Profile</label><input type="url" id="m_li" value="${getClean(15)}" placeholder="https://linkedin.com/in/..." class="enterprise-input"></div>
+                    <div class="mt-4"><label class="label-text">Primary Skills</label><input type="text" id="m_skills" value="${getClean(10)}" placeholder="Ex: Python, Cloud, AI..." class="enterprise-input"></div>
+                    <div class="col-span-full mt-6 bg-slate-50 p-6 rounded-3xl text-center border-2 border-dashed border-slate-200"><label class="label-text block mb-1">Neural Profile Photo</label><input type="file" id="m_photo" accept="image/*" class="text-[10px] font-bold text-slate-400"></div>
                     <button type="submit" id="submit-btn" class="col-span-full vivid-gradient text-white py-5 rounded-3xl font-black mt-8 uppercase shadow-xl hover:shadow-indigo-200 transition-all">Synchronize Node</button>
                 </form>`;
             updateRegMode();
@@ -402,23 +390,7 @@
             document.getElementById('submit-btn').disabled = false;
         }
 
-        function updateRegMode() {
-            const endYear = parseInt(document.getElementById('m_end').value);
-            const now = new Date(), curYear = now.getFullYear(), curMonth = now.getMonth(); 
-            let isAlumni = (endYear < curYear) || (endYear === curYear && curMonth >= 5);
-            const badge = document.getElementById('reg-mode-badge');
-            const alumniSection = document.getElementById('alumni-section');
-            if (isAlumni) {
-                badge.innerText = "Alumni Shift Engaged";
-                badge.className = "px-3 py-1 bg-slate-900 text-white rounded-lg text-[9px] font-black uppercase animate-pulse shadow-lg";
-                alumniSection.classList.remove('hidden');
-            } else {
-                badge.innerText = "Active Node Enrollment";
-                badge.className = "px-3 py-1 bg-indigo-100 text-indigo-600 rounded-lg text-[9px] font-black uppercase";
-                alumniSection.classList.add('hidden');
-            }
-        }
-
+        // --- DASHBOARD & UTILS ---
         async function loadDashboard() {
             try {
                 const res = await fetch(`${API_URL}?action=getStats`);
@@ -434,7 +406,7 @@
 
         function switchTab(t) {
             document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
-            if(t==='dashboard'||t==='directory') document.getElementById(`nav-${t}`).classList.add('active');
+            if(['dashboard','directory'].includes(t)) document.getElementById(`nav-${t}`).classList.add('active');
             ['dashboard-view','directory-view','search-container','dir-opts'].forEach(id => document.getElementById(id).classList.add('hidden'));
             if(t === 'dashboard') { document.getElementById('dashboard-view').classList.remove('hidden'); loadDashboard(); } 
             else { document.getElementById('directory-view').classList.remove('hidden'); document.getElementById('search-container').classList.remove('hidden'); document.getElementById('dir-opts').classList.remove('hidden'); fetchData(); }
@@ -454,11 +426,17 @@
             if(nation) document.getElementById('m_prefix').value = nation.c;
         }
 
+        function applyFilters() {
+            const q = document.getElementById('f_search').value.toLowerCase();
+            let filtered = !q ? masterData.filter(r => r.nodeType === activeMode) : masterData.filter(r => r[0].toString().toLowerCase().includes(q) || r[1].toString().toLowerCase().includes(q) || r[4].toString().toLowerCase().includes(q) || r[19].toString().toLowerCase().includes(q));
+            renderGrid(filtered);
+        }
+
         function toggleModal(s) { document.getElementById('modal').classList.toggle('hidden', !s); }
         function openRegistration() { activeMode = 'Students'; showEditForm(); }
         function editRecord(id) { showEditForm(masterData.find(x => (x[0] || "").toString() === id.toString()), false); }
-        async function deleteRecord(id, year) { if(confirm("Purge?")) { const res = await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action:'delete', token: ACTIVE_PASS, type:activeMode, id, year })}); const r = await res.json(); alert(r.msg); fetchData(); } }
-        function openExportModal() { toggleModal(true); document.getElementById('modal-content').innerHTML = `<div class="vivid-gradient p-10 text-white"><h2 class="text-3xl font-black uppercase italic text-center leading-none">Export</h2></div><div class="p-10 bg-white"><button onclick="processExport()" class="w-full bg-[#020617] text-white py-5 rounded-3xl font-black uppercase tracking-widest shadow-xl">Download Archive</button></div>`; }
+        async function deleteRecord(id, year) { if(confirm("Purge?")) { await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action:'delete', token: ACTIVE_PASS, type:activeMode, id, year })}); fetchData(); } }
+        function openExportModal() { toggleModal(true); document.getElementById('modal-content').innerHTML = `<div class="vivid-gradient p-10 text-white"><h2 class="text-3xl font-black uppercase italic text-center">Export Node Archive</h2></div><div class="p-10 bg-white"><button onclick="processExport()" class="w-full bg-[#020617] text-white py-5 rounded-3xl font-black uppercase tracking-widest shadow-xl">Download (.CSV)</button></div>`; }
         function processExport() { let csv = 'ID,Name,Dept,Email,Phone,Country\n'; masterData.forEach(r => csv += `"${r[0]}","${r[1]}","${r[4]}","${r[8]}","${r[9]}","${r[19]||'India'}"\n`); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' })); a.download = 'Nodes.csv'; a.click(); toggleModal(false); }
     </script>
 </body>
